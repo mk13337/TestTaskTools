@@ -2,36 +2,36 @@
 This tools have been written during solving test task from <company_name> :)
 
 They are not suitable to exploit real vulnerabilities.
-# File_Getter_v1.0
+# File_Getter.py
 File_Getter is tool that exploit SQL injection in file upload function to get access to Arbitrary File Reading.
 
 ### Usage
 ```
 python file_getter.py
-     MODES:
-                -interactive    
-                -fuzz
+      MODES:
+                --interactive          Interactive mode to search for files manually
+                --fuzz "list.txt"      Fuzz mode to search for files from list                  
           INTERACTIVE MODE
                 VERBOSITY OPTIONS:      
-                      -jwt            Prints JWT
-                      -printFile      Prints file
+                      --jwt            Prints JWT
+                      --printFile      Prints file
                 OTHER:
-                      -download       Downloads file if it exists
+                      --download       Downloads file if it exists
           FUZZ MODE
-                -addPath              Add path traversal "../../../../"
-          -h                          Print this page
+                --addPath              Add path traversal "../../../../"
+          --help                       Print this page
 
 ```
 #### Examples:
 Interactive mode with file printing, jwt printing, adding path traversal and downloading files:
 ```
-python3 file_getter.py -interactive -jwt -printFile -addPath -download
+python3 file_getter.py --interactive --jwt --printFile --addPath --download
 ```
 FUZZ mode with file printing, jwt printing, adding path traversal and downloading files:
 ```
-python3 file_getter.py -fuzz "validate.txt" jwt -printFile -addPath -download
+python3 file_getter.py --fuzz "validate.txt" --jwt --printFile --addPath --download
 ```
-# JWT_changer_v1.0
+# JWT_changer.py
 JWTchanger is tool to test SQL injections in JWT parameters.
 
 It works only with ID parameter, but could be easilly upgraded to work with any parameter.
