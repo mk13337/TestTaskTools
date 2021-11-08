@@ -9,7 +9,7 @@ import time
 URL = "http://127.0.0.1"
 filename_to_upload = "badfile.php"
 file_content = "<?php phpinfo(); ?>"
-user_id = 61334
+user_id = 31337
 is_public = 0
 
 timeout = 2
@@ -158,9 +158,9 @@ def print_banner():
 
 
 help = """
-          MODES:
-                --interactive    
-                --fuzz
+      MODES:
+                --interactive          Interactive mode to search for files manually
+                --fuzz "list.txt"      Fuzz mode to search for files from list                  
           INTERACTIVE MODE
                 VERBOSITY OPTIONS:      
                       --jwt            Prints JWT
@@ -169,8 +169,7 @@ help = """
                       --download       Downloads file if it exists
           FUZZ MODE
                 --addPath              Add path traversal "../../../../"
-          --help                       Print this page
-                                    
+          --help                       Print this page                                    
 """
 
 
