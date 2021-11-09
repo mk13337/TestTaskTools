@@ -5,6 +5,34 @@ They are not suitable to exploit real vulnerabilities.
 # File_Getter.py
 File_Getter is tool that exploit SQL injection in file upload function to get access to Arbitrary File Reading.
 
+## Installation
+Install requirements
+```
+pip3 install -r requirements.txt
+```
+Clone repository
+```
+git clone https://github.com/MiichaelKlimenko/TestTaskTools/
+```
+Change configuration in file (you need to change only URL):
+```python
+##############################################
+###################CONFIG#####################
+URL = "http://127.0.0.1"                     # Main url to vulnerable system
+filename_to_upload = "badfile.php"
+file_content = "<?php phpinfo(); ?>"
+user_id = 31337
+is_public = 0
+
+timeout = 2                                  # Defines time to wait when www-data has not privileges to get file
+
+login = "admin"
+mail = "admin"
+role = "admin"
+ip = "127.0.0.1"
+##############################################
+```
+
 ### Usage
 ```
 python file_getter.py
@@ -40,11 +68,6 @@ It works only with ID parameter, but could be easilly upgraded to work with any 
 python jwt_changer.py
 ```
 ---
-
-## Requirements
-```
-pip install pyjwt requests
-```
 
 ## Possible issues
 jwt and pyJWT libraries are in conflict so you should do next:
